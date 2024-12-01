@@ -1,11 +1,15 @@
+import type { RootStackParamList } from './types';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Paths } from '@/navigation/paths';
 
+import { CustomTabBar } from '@/components/atoms';
 import {
   Account,
   ForgotPassword,
@@ -13,9 +17,8 @@ import {
   Landing,
   Login,
   MovieList,
-  SignUp
+  SignUp,
 } from '@/screens';
-import type { RootStackParamList } from './types';
 
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootStackParamList>();
@@ -23,7 +26,29 @@ const Tab = createBottomTabNavigator<RootStackParamList>();
 // Bottom Tab Navigator
 function MainTabs() {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarActiveTintColor: '#6200EE',
+        tabBarBackground: () => <CustomTabBar />,
+        tabBarIcon: ({ color, focused, size }) => {
+          let iconName: string;
+
+          if (route.name === 'Home') {
+            iconName = 'home';
+          } else if (route.name === 'MovieList') {
+            iconName = 'heart';
+          } else if (route.name === 'Account') {
+            iconName = 'account';
+          } else {
+            iconName = '';
+          }
+
+          return <Icon color={color} name={iconName} size={size} />;
+        },
+        tabBarInactiveTintColor: 'gray',
+      })}
+    >
       <Tab.Screen component={Home} name={Paths.Home} />
       <Tab.Screen component={MovieList} name={Paths.MovieList} />
       <Tab.Screen component={Account} name={Paths.Account} />
@@ -44,7 +69,6 @@ function AuthStack() {
 
 // Root Stack Navigator
 function RootNavigator() {
-
   const MyTheme = {
     ...DefaultTheme,
     colors: {
@@ -57,7 +81,10 @@ function RootNavigator() {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={MyTheme}>
-        <Stack.Navigator initialRouteName={Paths.Landing} screenOptions={{ headerShown: false }}>
+        <Stack.Navigator
+          initialRouteName={Paths.Landing}
+          screenOptions={{ headerShown: false }}
+        >
           <Stack.Screen component={Landing} name={Paths.Landing} />
           <Stack.Screen component={AuthStack} name={Paths.AuthStack} />
           <Stack.Screen component={MainTabs} name={Paths.MainTabs} />

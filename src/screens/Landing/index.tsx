@@ -83,8 +83,8 @@ const Landing = ({ navigation }: RootScreenProps<Paths.Landing>) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate(Paths.AuthStack, {
-                screen: Paths.MainTabs,
+              navigation.navigate(Paths.MainTabs, {
+                screen: Paths.Home,
               })
             }
             style={styles.buttonGuest}
