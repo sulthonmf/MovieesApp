@@ -29,14 +29,14 @@ function MainTabs() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: '#6200EE',
+        tabBarActiveTintColor: '#FF0303',
         tabBarBackground: () => <CustomTabBar />,
         tabBarIcon: ({ color, focused, size }) => {
           let iconName: string;
 
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'MovieList') {
+          } else if (route.name === 'Movie List') {
             iconName = 'heart';
           } else if (route.name === 'Account') {
             iconName = 'account';

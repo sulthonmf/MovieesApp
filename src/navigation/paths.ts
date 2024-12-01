@@ -7,7 +7,7 @@ export const enum Paths {
   Landing = 'Landing',
   Login = 'Login',
   MainTabs = 'MainTabs',
-  MovieList = 'MovieList',
+  MovieList = 'Movie List',
   SignUp = 'SignUp',
   Startup = 'startup'
 }
