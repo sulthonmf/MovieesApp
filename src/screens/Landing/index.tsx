@@ -45,8 +45,6 @@ const Landing = ({ navigation }: RootScreenProps<Paths.Landing>) => {
           style={{
             flex: 1,
             justifyContent: 'flex-start',
-            marginBottom: 35,
-            marginTop: -20
           }}
         >
           <Text
@@ -70,16 +68,6 @@ const Landing = ({ navigation }: RootScreenProps<Paths.Landing>) => {
             style={styles.button}
           >
             <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate(Paths.AuthStack, {
-                screen: Paths.SignUp,
-              })
-            }
-            style={styles.buttonSignUp}
-          >
-            <Text style={styles.buttonTextSignUp}>Sign Up</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>

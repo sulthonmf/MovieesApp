@@ -13,8 +13,8 @@ function Home({ navigation }: RootScreenProps<Paths.Home>) {
 }
 
 const styles = StyleSheet.create({
-  container: { alignItems: 'center', flex: 1, justifyContent: 'center', padding: 16 },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 16 },
+  container: { alignItems: 'center', backgroundColor: '#FFF', flex: 1, justifyContent: 'center', padding: 16 },
+  title: { color: '#000', fontSize: 24, fontWeight: 'bold',marginBottom: 16 },
 });
 
 export default Home;

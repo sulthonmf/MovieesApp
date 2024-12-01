@@ -20,7 +20,7 @@ const MenuBlur = () => {
         <BlurView
           blurAmount={10}
           blurType="light"
-          reducedTransparencyFallbackColor="white"
+        //   reducedTransparencyFallbackColor="#4E6E81"
           style={styles.absolute}
         />
       </View>
