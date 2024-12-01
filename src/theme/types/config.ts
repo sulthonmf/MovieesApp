@@ -19,7 +19,14 @@ export type FulfilledThemeConfiguration = {
   readonly colors: Record<string, string>;
   fonts: {
     readonly colors: Record<string, string>;
-    sizes: readonly number[];
+    sizes: {
+      large: number;
+      medium: number;
+      small: number;
+      xLarge: number;
+      xxLarge: number;
+      xxxLarge: number;
+    };
   };
   gutters: readonly number[];
   readonly navigationColors: NavigationTheme['colors'];
@@ -33,6 +40,14 @@ export type VariantThemeConfiguration = {
   readonly colors: FulfilledThemeConfiguration['colors'];
   fonts: {
     readonly colors: FulfilledThemeConfiguration['fonts']['colors'];
+    sizes: {
+      large: number;
+      medium: number;
+      small: number;
+      xLarge: number;
+      xxLarge: number;
+      xxxLarge: number;
+    };
   };
   readonly navigationColors: Partial<NavigationTheme['colors']>;
 };

@@ -1,4 +1,3 @@
-import type { PropsWithChildren } from 'react';
 import type { MMKV } from 'react-native-mmkv';
 import type {
   FulfilledThemeConfiguration,
@@ -6,6 +5,8 @@ import type {
 } from '@/theme/types/config';
 import type { ComponentTheme, Theme } from '@/theme/types/theme';
 
+import type {
+  PropsWithChildren} from 'react';
 import {
   createContext,
   useCallback,
@@ -74,7 +75,7 @@ function ThemeProvider({ children = false, storage }: Props) {
 
   const fonts = useMemo(() => {
     return {
-      ...generateFontSizes(),
+      ...generateFontSizes(), // Generate sizes from this function
       ...generateFontColors(fullConfig),
       ...staticFontStyles,
     };

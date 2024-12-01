@@ -34,6 +34,15 @@ const colorsDark = {
 
 const sizes = [12, 16, 24, 32, 40, 80] as const;
 
+const fontSizes = {
+  large: 24,
+  medium: 16,  // Properti 'medium' harus ada di sini
+  small: 12,
+  xLarge: 32,
+  xxLarge: 40,
+  xxxLarge: 80,
+} as const;
+
 export const config = {
   backgrounds: colorsLight,
   borders: {
@@ -44,7 +53,7 @@ export const config = {
   colors: colorsLight,
   fonts: {
     colors: colorsLight,
-    sizes,
+    sizes: fontSizes,
   },
   gutters: sizes,
   navigationColors: {
@@ -61,6 +70,7 @@ export const config = {
       colors: colorsDark,
       fonts: {
         colors: colorsDark,
+        sizes: fontSizes,
       },
       navigationColors: {
         ...DarkTheme.colors,
