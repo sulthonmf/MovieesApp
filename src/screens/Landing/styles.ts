@@ -1,6 +1,6 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native';
 
-const {height, width} = Dimensions.get('screen')
+const { height, width } = Dimensions.get('screen');
 
 export const styles = StyleSheet.create({
   button: {
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    width: width / 1.2
+    width: width / 1.2,
   },
   buttonGuest: {
     backgroundColor: '#FFF',
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    width: width / 1.2
+    width: width / 1.2,
   },
   buttonSignUp: {
     backgroundColor: '#2E3840',
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    width: width / 1.2
+    width: width / 1.2,
   },
   buttonText: {
     color: '#fff',
@@ -60,6 +60,11 @@ export const styles = StyleSheet.create({
     gap: 10,
     justifyContent: 'center',
     paddingVertical: 10,
+    width: '100%',
+  },
+  footerContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
   },
   loadingText: {
     color: '#fff',
@@ -70,5 +75,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 8,
     justifyContent: 'center',
+  },
+  titleFooterText: {
+    color: '#FFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

@@ -2,10 +2,11 @@ import type { RootScreenProps } from '@/navigation/types';
 
 import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
- 
 import TimedSlideshow from 'react-native-timed-slideshow';
 
 import { Paths } from '@/navigation/paths';
+
+import { Button } from '@/components/atoms';
 
 import { styles } from './styles';
 
@@ -41,44 +42,33 @@ const Landing = ({ navigation }: RootScreenProps<Paths.Landing>) => {
   const renderFooterItem = () => {
     return (
       <>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'flex-start',
-          }}
-        >
-          <Text
-            style={{
-              color: '#FFF',
-              fontSize: 18,
-              fontWeight: 'bold',
-              textAlign: 'center'
-            }}
-          >
+        <View style={styles.footerContainer}>
+          <Text style={styles.titleFooterText}>
             {`Welcome to Moviees, Login to your account to start your experience`}
           </Text>
         </View>
         <View style={styles.footer}>
-          <TouchableOpacity
+          <Button
+            fullWidth={true}
             onPress={() =>
               navigation.navigate(Paths.AuthStack, {
                 screen: Paths.Login,
               })
             }
-            style={styles.button}
           >
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
+            Login
+          </Button>
+          <Button
+            fullWidth={true}
             onPress={() =>
               navigation.navigate(Paths.MainTabs, {
                 screen: Paths.Home,
               })
             }
-            style={styles.buttonGuest}
+            type="tertiary"
           >
-            <Text style={styles.buttonTextGuest}>Continue as Guest</Text>
-          </TouchableOpacity>
+            Continue as Guest
+          </Button>
         </View>
       </>
     );
