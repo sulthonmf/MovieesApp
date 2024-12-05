@@ -4,12 +4,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
+import { Alert, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Paths } from '@/navigation/paths';
 
-import { CustomTabBar } from '@/components/atoms';
+import { AssetByVariant, CustomTabBar } from '@/components/atoms';
 import {
   Account,
   ForgotPassword,
@@ -23,22 +24,46 @@ import {
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
+// Kustom Header untuk layar Home
+function CustomHeader({navigation}: any) {
+  return (
+    <View style={styles.headerContainer}>
+      {/* Ikon kiri */}
+      <View style={{ alignItems: 'center', flex: 1, flexDirection: 'row' }}>
+        <AssetByVariant
+          path={'DarkIcon'}
+          resizeMode={'contain'}
+          style={{ alignSelf: 'flex-start', height: 100, width: 100 }}
+        />
+      </View>
+
+      {/* Ikon kanan */}
+      <TouchableOpacity
+        onPress={() => Alert.alert('Search clicked')}
+        style={styles.iconButton}
+      >
+        <Icon color="#fff" name="magnify" size={24} />
+      </TouchableOpacity>
+    </View>
+  );
+}
+
 // Bottom Tab Navigator
 function MainTabs() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: false,
+        headerShown: route.name === Paths.Home, // Header hanya muncul di Home
         tabBarActiveTintColor: '#ffbd59',
         tabBarBackground: () => <CustomTabBar />,
-        tabBarIcon: ({ color, focused, size }) => {
+        tabBarIcon: ({ color, size }) => {
           let iconName: string;
 
-          if (route.name === 'Home') {
+          if (route.name === Paths.Home) {
             iconName = 'home';
-          } else if (route.name === 'Movie List') {
+          } else if (route.name === Paths.MovieList) {
             iconName = 'heart';
-          } else if (route.name === 'Account') {
+          } else if (route.name === Paths.Account) {
             iconName = 'account';
           } else {
             iconName = '';
@@ -49,7 +74,13 @@ function MainTabs() {
         tabBarInactiveTintColor: '#FFF',
       })}
     >
-      <Tab.Screen component={Home} name={Paths.Home} />
+      <Tab.Screen
+        component={Home}
+        name={Paths.Home}
+        options={{
+          header: ({ navigation }) => <CustomHeader navigation={navigation} />,
+        }}
+      />
       <Tab.Screen component={MovieList} name={Paths.MovieList} />
       <Tab.Screen component={Account} name={Paths.Account} />
     </Tab.Navigator>
@@ -74,7 +105,7 @@ function RootNavigator() {
     colors: {
       ...DefaultTheme.colors,
       // background: 'rgb(140, 201, 125)',
-      primary: 'rgb(255, 45, 85)',
+      primary: '#ffbd59',
     },
   };
 
@@ -93,5 +124,26 @@ function RootNavigator() {
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Gunakan warna hitam semi-transparan
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)', // Warna garis bawah transparan
+    borderBottomWidth: StyleSheet.hairlineWidth, // Opsional: Tambahkan garis bawah
+    flexDirection: 'row',
+    height: 66,
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+  },
+  headerTitle: {
+    color: '#FFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  iconButton: {
+    padding: 8,
+  },
+});
 
 export default RootNavigator;
