@@ -28,7 +28,7 @@ function MainTabs() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: true,
+        headerShown: false,
         tabBarActiveTintColor: '#FF0303',
         tabBarBackground: () => <CustomTabBar />,
         tabBarIcon: ({ color, focused, size }) => {

@@ -9,6 +9,8 @@ import ApplicationNavigator from '@/navigation/Application';
 
 import '@/translations';
 
+import { Platform, StatusBar } from 'react-native';
+
 export const queryClient = new QueryClient({
   defaultOptions: {
     mutations: {
@@ -27,6 +29,7 @@ function App() {
     <GestureHandlerRootView>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider storage={storage}>
+          {Platform.OS === 'android' && <StatusBar backgroundColor={'black'} barStyle={'default'}/>}
           <ApplicationNavigator />
         </ThemeProvider>
       </QueryClientProvider>

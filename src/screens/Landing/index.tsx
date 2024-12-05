@@ -2,7 +2,7 @@ import type { RootScreenProps } from '@/navigation/types';
 
 import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-// eslint-disable-next-line import/no-extraneous-dependencies
+ 
 import TimedSlideshow from 'react-native-timed-slideshow';
 
 import { Paths } from '@/navigation/paths';
@@ -90,13 +90,13 @@ const Landing = ({ navigation }: RootScreenProps<Paths.Landing>) => {
       <View style={styles.slideshowContainer}>
         {moviePosters.length > 0 ? (
           <TimedSlideshow
+            footerStyle={{
+              height: 300,
+            }}
             items={moviePosters}
             renderCloseIcon={() => {}}
             renderFooter={renderFooterItem}
             showProgressBar={false}
-            footerStyle={{
-              height: 300,
-            }}
           />
         ) : (
           <Text style={styles.loadingText}>Loading movie posters...</Text>
