@@ -2,22 +2,14 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   absolute: {
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0,
+    height: 100
   },
-  container: {
-    backgroundColor: 'transparent', // Transparent to allow blur effect
-    bottom: 0,
-    height: 80, // Adjust to match the tab bar height
-    left: 0,
-    position: 'absolute',
-    right: 0,
-  },
-  tabBarContainer: {
+  tabContainer: {
     backgroundColor: 'transparent',
-    flex: 1,
+    bottom: 0,
+    height: '100%',
+    overflow: 'hidden',
+    position: 'absolute',
+    width: '100%'
   },
 });

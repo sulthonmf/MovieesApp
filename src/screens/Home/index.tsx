@@ -7,14 +7,14 @@ function Home({ navigation }: RootScreenProps<Paths.Home>) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Home Screen</Text>
-      <Text>Welcome to the Movie Catalog App!</Text>
+      <Text style={styles.title}>Welcome to the Movie Catalog App!</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { alignItems: 'center', backgroundColor: '#FFF', flex: 1, justifyContent: 'center', padding: 16 },
-  title: { color: '#000', fontSize: 24, fontWeight: 'bold',marginBottom: 16 },
+  container: { alignItems: 'center', backgroundColor: '#000', flex: 1, justifyContent: 'center', padding: 16 },
+  title: { color: '#ffbd59', fontSize: 24, fontWeight: 'bold',marginBottom: 16 },
 });
 
 export default Home;

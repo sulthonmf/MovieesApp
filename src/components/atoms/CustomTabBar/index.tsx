@@ -9,21 +9,15 @@ import { styles } from './styles';
 
 const MenuBlur = () => {
   return (
-    <View style={{ flex: 1 }}>
-      <View
-        style={{
-          height: 55,
-          overflow: 'hidden',
-          width: '100%',
-        }}
-      >
-        <BlurView
-          blurAmount={10}
-          blurType="light"
-        //   reducedTransparencyFallbackColor="#4E6E81"
-          style={styles.absolute}
-        />
-      </View>
+    <View
+      style={styles.tabContainer}
+    >
+      <BlurView
+        blurAmount={20}
+        blurType="dark"
+        // reducedTransparencyFallbackColor="#000"
+        style={styles.absolute}
+      />
     </View>
   );
 };

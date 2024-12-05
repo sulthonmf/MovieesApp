@@ -29,7 +29,7 @@ function MainTabs() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: '#FF0303',
+        tabBarActiveTintColor: '#ffbd59',
         tabBarBackground: () => <CustomTabBar />,
         tabBarIcon: ({ color, focused, size }) => {
           let iconName: string;
@@ -46,7 +46,7 @@ function MainTabs() {
 
           return <Icon color={color} name={iconName} size={size} />;
         },
-        tabBarInactiveTintColor: '#4E6E81',
+        tabBarInactiveTintColor: '#FFF',
       })}
     >
       <Tab.Screen component={Home} name={Paths.Home} />
