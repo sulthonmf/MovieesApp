@@ -23,16 +23,18 @@ export const styles = StyleSheet.create({
     color: 'black',
   },
   primary: {
-    backgroundColor: 'red',
+    backgroundColor: '#ffbd59',
   },
   primaryText: {
-    color: 'white',
+    color: 'black',
+    fontWeight: 'bold'
   },
   secondary: {
     backgroundColor: 'black',
   },
   secondaryText: {
     color: 'white',
+    fontWeight: 'bold'
   },
   tertiary: {
     backgroundColor: 'white',
@@ -41,6 +43,7 @@ export const styles = StyleSheet.create({
   },
   tertiaryText: {
     color: 'black',
+    fontWeight: 'bold'
   },
   text: {
     fontSize: 16,

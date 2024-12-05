@@ -13,6 +13,8 @@ import { styles } from './styles';
 const Landing = ({ navigation }: RootScreenProps<Paths.Landing>) => {
   const [moviePosters, setMoviePosters] = useState([]);
 
+  console.log(process.env.TMDB_API_KEY)
+
   // Fetch random movie posters
   useEffect(() => {
     const fetchMovies = async () => {
