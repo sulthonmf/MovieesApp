@@ -1,7 +1,7 @@
 import type { RootScreenProps } from '@/navigation/types';
 
 import React, { useEffect, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import TimedSlideshow from 'react-native-timed-slideshow';
 
 import { Paths } from '@/navigation/paths';
@@ -12,8 +12,6 @@ import { styles } from './styles';
 
 const Landing = ({ navigation }: RootScreenProps<Paths.Landing>) => {
   const [moviePosters, setMoviePosters] = useState([]);
-
-  console.log(process.env.TMDB_API_KEY)
 
   // Fetch random movie posters
   useEffect(() => {

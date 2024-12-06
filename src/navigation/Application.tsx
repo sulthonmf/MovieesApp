@@ -33,7 +33,7 @@ function CustomHeader({navigation}: any) {
         <AssetByVariant
           path={'DarkIcon'}
           resizeMode={'contain'}
-          style={{ alignSelf: 'flex-start', height: 100, width: 100 }}
+          style={{ alignSelf: 'flex-start', height: 100, marginLeft: 10, width: 100 }}
         />
       </View>
 
@@ -128,7 +128,7 @@ function RootNavigator() {
 const styles = StyleSheet.create({
   headerContainer: {
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Gunakan warna hitam semi-transparan
+    backgroundColor: 'rgba(0, 0, 0, 1)', // Gunakan warna hitam semi-transparan
     borderBottomColor: 'rgba(255, 255, 255, 0.1)', // Warna garis bawah transparan
     borderBottomWidth: StyleSheet.hairlineWidth, // Opsional: Tambahkan garis bawah
     flexDirection: 'row',
