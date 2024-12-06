@@ -1,7 +1,13 @@
-import { Paths } from '@/navigation/paths';
 import type { RootScreenProps } from '@/navigation/types';
+
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
+
+import { Paths } from '@/navigation/paths';
+
+import { Button } from '@/components/atoms';
+
+import { styles } from './styles';
 
 function Login({ navigation }: RootScreenProps<Paths.Login>) {
   const [email, setEmail] = useState('');
@@ -13,7 +19,7 @@ function Login({ navigation }: RootScreenProps<Paths.Login>) {
       // Jika berhasil:
       navigation.navigate(Paths.MainTabs);
     } else {
-      throw('Please enter your email and password');
+      throw 'Please enter your email and password';
     }
   };
 
@@ -34,36 +40,23 @@ function Login({ navigation }: RootScreenProps<Paths.Login>) {
         style={styles.input}
         value={password}
       />
-      <Button onPress={handleLogin} title="Login" />
-      <Text onPress={() => navigation.navigate(Paths.SignUp)} style={styles.link}>
-        Don't have an account? Sign up here.
-      </Text>
-      <Text
-        onPress={() => navigation.navigate(Paths.ForgotPassword)}
-        style={styles.link}
-      >
-        Forgot password?
-      </Text>
+      <Button onPress={handleLogin}>Login</Button>
+      <View style={styles.bottomText}>
+        <Text
+          onPress={() => navigation.navigate(Paths.SignUp)}
+          style={styles.link}
+        >
+          Don't have an account? Sign up here.
+        </Text>
+        <Text
+          onPress={() => navigation.navigate(Paths.ForgotPassword)}
+          style={styles.link}
+        >
+          Forgot password?
+        </Text>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 16 },
-  input: {
-    borderColor: '#ccc',
-    borderRadius: 8,
-    borderWidth: 1,
-    marginBottom: 16,
-    padding: 12,
-  },
-  link: { color: 'blue', marginTop: 8, textAlign: 'center' },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 24,
-    textAlign: 'center',
-  },
-});
 
 export default Login;
